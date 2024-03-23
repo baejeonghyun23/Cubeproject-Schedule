@@ -1,3 +1,4 @@
+import 'package:cube/report.dart';
 import 'package:cube/schedule.dart';
 import 'package:cube/search.dart';
 import 'package:flutter/material.dart';
@@ -60,7 +61,10 @@ class ReservationPage extends StatelessWidget {
 class ReportPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Center(child: Text('리포트'));
+    return MaterialApp(
+      title: 'Contact Record',
+      home: ContactRecordScreen(),
+    );
   }
 }
 
