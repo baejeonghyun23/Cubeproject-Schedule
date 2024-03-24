@@ -1,6 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+import 'memory.dart';
+
 
 class HomeBanner extends StatefulWidget {
   @override
@@ -37,15 +39,15 @@ class _HomeBannerState extends State<HomeBanner> {
                   ),
                 ),
                 Positioned(
-                  right: 20, // 우측 정렬
-                  top: 20, // 하단 정렬
+                  right: 24, // 우측 정렬
+                  top: 10, // 하단 정렬
                   child: Padding(
                     padding: const EdgeInsets.all(10.0), // 텍스트의 패딩 설정
                     child: Text(
                       "부모님과의 대화를\n잊지는 않으셨나요?", // 원하는 텍스트 입력
                       style: TextStyle(
                         color: Colors.white, // 텍스트 색상을 하얀색으로 설정
-                        fontSize: 20, // 텍스트 크기 설정
+                        fontSize: 16, // 텍스트 크기 설정
                         fontWeight: FontWeight.bold, // 텍스트 굵기 설정
                       ),
                     ),
@@ -231,21 +233,32 @@ class _HomeBannerState extends State<HomeBanner> {
           Padding(
             padding: const EdgeInsets.only(left: 20.0, top: 10.0, right: 20),
             child: Row(
-              children: <Widget>[
-                Expanded( // 텍스트가 차지할 수 있는 모든 공간을 사용하도록 함
-                  child: Text(
-                    '통화 메모를 기록해보세요 😍',
-                    style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 16,
+                children: <Widget>[
+                  Expanded(
+                    child: Text(
+                      '통화 메모를 기록해보세요 😍',
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 16,
+                      ),
                     ),
                   ),
-                ),
-                Icon(
-                  Icons.edit, // 원하는 아이콘을 사용하세요
-                  color: Colors.black, // 아이콘 색상 설정
-                ),
-              ],
+                  IconButton(
+                    icon: Icon(
+                      Icons.edit, // 원하는 아이콘을 사용하세요
+                      color: Colors.black, // 아이콘 색상 설정
+                    ),
+                    onPressed: () {
+                      // 여기에 버튼을 눌렀을 때 실행될 코드를 작성하세요
+                      // 예를 들어, 다른 화면으로 이동하고 싶다면 Navigator.push를 사용할 수 있습니다.
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => Memory()),
+                      );
+                    },
+                  ),
+                ]
+
             ),
           ),
           Padding(
@@ -266,7 +279,7 @@ class _HomeBannerState extends State<HomeBanner> {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start, // 텍스트를 왼쪽 정렬
                     children: <Widget>[
-                      Text('퇴근하고 엄마 목소리 듣기!', style: TextStyle(fontSize: 15, color: Colors.amber, fontWeight: FontWeight.bold)),
+                      Text('퇴근하고 엄마 목소리 듣기!', style: TextStyle(fontSize: 15, color: Color(0xFFFF6F0F), fontWeight: FontWeight.bold)),
                       Text('결혼하고 첫집에서 다음집으로 이사를 계획하면서 매매를 하게되었고..', style: TextStyle(fontSize: 14)),
                     ],
                   ),
@@ -292,7 +305,7 @@ class _HomeBannerState extends State<HomeBanner> {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start, // 텍스트를 왼쪽 정렬
                     children: <Widget>[
-                      Text('할머니가 “열 부자가 안 부럽대요”', style: TextStyle(fontSize: 15, color: Colors.amber, fontWeight: FontWeight.bold)),
+                      Text('할머니가 “열 부자가 안 부럽대요”', style: TextStyle(fontSize: 15, color: Color(0xFFFF6F0F), fontWeight: FontWeight.bold)),
                       Text('결혼하고 첫집에서 다음집으로 이사를 계획하면서 매매를 하게되었고..', style: TextStyle(fontSize: 14)),
                     ],
                   ),
