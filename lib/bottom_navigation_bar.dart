@@ -5,15 +5,61 @@ import 'package:flutter/material.dart';
 import 'package:awesome_bottom_bar/awesome_bottom_bar.dart';
 
 import 'app_bar.dart';
+import 'home.dart';
 import 'main.dart';
+
+
 
 // 각 탭에 대응하는 페이지 위젯들
 class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Center(child: Text('홈'));
+    return Scaffold(
+      appBar: PreferredSize(
+        preferredSize: Size.fromHeight(70.0), // AppBar의 높이를 조정
+        child: AppBar(
+          title: Padding(
+            padding: EdgeInsets.only(top: 30.0), // 로고의 상단 패딩 조정
+            child: Image.asset(
+              'assets/images/logo.png',
+              height: 100,
+              width: 150,
+            ),
+          ),
+          actions: <Widget>[
+            Padding(
+              padding: const EdgeInsets.only(top: 15.0), // 아이콘의 상단 패딩 조정
+              child: Row(
+                mainAxisSize: MainAxisSize.min,
+                children: <Widget>[
+                  IconButton(
+                    icon: Icon(Icons.notifications, size: 35,),
+                    onPressed: () {
+                      print('알림 아이콘 클릭됨');
+                    },
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(right: 14.0),
+                    child: IconButton(
+                      icon: Icon(Icons.search, size: 35,),
+                      onPressed: () {
+                        print('검색 아이콘 클릭됨');
+                      },
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ],
+        ),
+      ),
+      body: HomeBanner(),
+    );
   }
 }
+
+
+
 
 class RegistrationPage extends StatelessWidget {
   @override
@@ -63,6 +109,7 @@ class ReportPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Contact Record',
+      debugShowCheckedModeBanner: false,
       home: ContactRecordScreen(),
     );
   }
@@ -131,5 +178,7 @@ class _BottomNavigationBarAppState extends State<BottomNavigationBarApp> {
 }
 
 void main() {
-  runApp(MaterialApp(home: BottomNavigationBarApp()));
+  runApp(MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: BottomNavigationBarApp()));
 }
